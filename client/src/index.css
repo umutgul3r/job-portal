@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap");
+
+@layer base {
+  html,
+  body #root {
+    font-family: "Inter", sans-serif;
+    @apply antialiased bg-[#FFFFFF];
+  }
+}
+@layer components {
+  .div {
+    @apply lg:w-1/4 w-1/2;
+  }
+  .jobDiv {
+    @apply w-full h-[20px];
+  }
+  .unread {
+    @apply h-8 w-8 rounded-[50px] m-5;
+  }
+  .myJobsButton {
+    @apply inline-flex text-black items-center py-2 px-3 text-sm font-medium text-center rounded-lg  focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800;
+  }
+  .myJobsDiv {
+    @apply h-20;
+  }
+  .elisp {
+    @apply overflow-hidden h-8 whitespace-nowrap text-ellipsis;
+  }
+}
