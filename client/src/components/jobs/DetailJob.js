@@ -14,7 +14,7 @@ function DetailProduct() {
   const params = useParams();
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { user, isLogged, isSeller, isAdmin } = auth;
+  const { user, isLogged, isEmployee } = auth;
 
   const is = (element) => element.postUser === user.name;
 
@@ -81,7 +81,7 @@ function DetailProduct() {
           <div className="mt-1">
             İlan Tarihi {moment(itemDetail?.createdAt).format("YYYY-MM-DD")}
           </div>
-          {!isSeller && !isAdmin && (
+          {isEmployee && (
             <div className="">
               {!isApply && !isAccept && (
                 <Button className="w-[100px]" onClick={() => handleSubmit()}>

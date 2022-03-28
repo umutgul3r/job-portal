@@ -40,10 +40,7 @@ function MyProducts() {
                   {com.title}
                 </h5>
               </div>
-              <p
-                data-hover="Hello, this is the tooltip"
-                className="myJobsDiv mb-3 font-normal text-gray-700 dark:text-gray-400 overflow-hidden h-8 whitespace-nowrap text-ellipsis"
-              >
+              <p className="myJobsDiv mb-3 font-normal text-gray-700 dark:text-gray-400 overflow-hidden h-8 whitespace-nowrap text-ellipsis">
                 {com.description}
               </p>
               <div className="flex gap-4">

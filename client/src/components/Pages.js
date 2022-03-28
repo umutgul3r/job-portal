@@ -1,25 +1,25 @@
-import React from 'react'
-import { Routes, Route } from 'react-router-dom'
-import Jobs from './jobs/Jobs'
-import DetailJob from './jobs/DetailJob'
-import Login from './user/Login'
-import Register from './user/Register'
-import NotFound from './utils/NotFound'
-import CreateJob from './jobs/CreateJob'
-import { useSelector } from 'react-redux'
-import ActivationEmail from './user/ActivationEmail'
-import ForgotPassword from './user/ForgotPassword'
-import ResetPassword from './user/ResetPassword'
-import EditUser from './user/EditUser'
-import Profile from './profile/Profile'
-import Support from './chat/SupportScreen'
-import MyJobs from './jobs/MyJobs'
-import Applications from './applications/Applications'
-import Employes from './employes/Employes'
+import React from "react";
+import { Routes, Route } from "react-router-dom";
+import Jobs from "./jobs/Jobs";
+import DetailJob from "./jobs/DetailJob";
+import Login from "./user/Login";
+import Register from "./user/Register";
+import NotFound from "./utils/NotFound";
+import CreateJob from "./jobs/CreateJob";
+import { useSelector } from "react-redux";
+import ActivationEmail from "./user/ActivationEmail";
+import ForgotPassword from "./user/ForgotPassword";
+import ResetPassword from "./user/ResetPassword";
+import EditUser from "./user/EditUser";
+import Profile from "./profile/Profile";
+import Support from "./chat/SupportScreen";
+import MyJobs from "./jobs/MyJobs";
+import Applications from "./applications/Applications";
+import Employes from "./employes/Employes";
 
 function Pages() {
-  const auth = useSelector((state) => state.auth)
-  const { isLogged, isAdmin, isSeller } = auth
+  const auth = useSelector((state) => state.auth);
+  const { isLogged, isAdmin, isEmployer } = auth;
 
   return (
     <Routes>
@@ -54,22 +54,22 @@ function Pages() {
       <Route
         path="/my-jobs"
         exact
-        element={isSeller ? <MyJobs /> : <NotFound />}
+        element={isEmployer ? <MyJobs /> : <NotFound />}
       />
       <Route
         path="/applications/:id"
         exact
-        element={isSeller ? <Applications /> : <NotFound />}
+        element={isEmployer ? <Applications /> : <NotFound />}
       />
       <Route
         path="/create-job"
         exact
-        element={isAdmin || isSeller ? <CreateJob /> : <NotFound />}
+        element={isAdmin || isEmployer ? <CreateJob /> : <NotFound />}
       />
       <Route
         path="/edit-job/:id"
         exact
-        element={isAdmin || isSeller ? <CreateJob /> : <NotFound />}
+        element={isAdmin || isEmployer ? <CreateJob /> : <NotFound />}
       />
       <Route
         path="/user/activate/:activation_token"
@@ -83,12 +83,12 @@ function Pages() {
       />
       <Route
         path="/employes"
-        element={isSeller ? <Employes /> : <NotFound />}
+        element={isEmployer ? <Employes /> : <NotFound />}
         exact
       />
       <Route path="*" exact element={<NotFound />} />
     </Routes>
-  )
+  );
 }
 
-export default Pages
+export default Pages;

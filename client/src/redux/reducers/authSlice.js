@@ -14,7 +14,8 @@ const initialState = {
   user: "",
   isLogged: false,
   isAdmin: false,
-  isSeller: false,
+  isEmployer: false,
+  isEmployee: false,
 };
 
 export const authSlice = createSlice({
@@ -32,8 +33,10 @@ export const authSlice = createSlice({
       const user = action.payload.role;
       const admin = user === 1 ? true : false;
       const seller = user === 2 ? true : false;
+      const employee = user === 0 ? true : false;
       state.isAdmin = admin;
-      state.isSeller = seller;
+      state.isEmployer = seller;
+      state.isEmployee = employee;
     },
   },
 });

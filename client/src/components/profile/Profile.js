@@ -23,7 +23,7 @@ const initialState = {
 export default function Profile() {
   const auth = useSelector((state) => state.auth);
   const token = useSelector((state) => state.getToken.token);
-  const { user, isAdmin, isSeller } = auth;
+  const { user, isAdmin, isEmployer, isEmployee } = auth;
   const [data, setData] = useState(initialState);
   const [profile, setProfile] = useState(false);
   const [cv, setCv] = useState(false);
@@ -248,7 +248,7 @@ export default function Profile() {
                 ></img>
               </div>
             </div>
-            <div>{!isAdmin && !isSeller && <Cv changeCv={changeCv} />}</div>
+            <div>{!isAdmin && !isEmployer && <Cv changeCv={changeCv} />}</div>
           </div>
 
           <div>
@@ -308,13 +308,8 @@ export default function Profile() {
             />
           </div>
         </div>
-        {!isSeller && isAdmin ? (
-          <Users handleDelete={handleDelete} />
-        ) : (
-          <div className=" ml-2 mt-8 flex">
-            <ApplicationStatus />
-          </div>
-        )}
+        {isAdmin && <Users handleDelete={handleDelete} />}
+        {isEmployee && <ApplicationStatus />}
       </div>
     </>
   );

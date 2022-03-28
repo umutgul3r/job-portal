@@ -30,7 +30,7 @@ function Products() {
     <div>
       <Search />
       <div className="grid h-full sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 px-10 mt-12">
-        {currentPosts?.map((com, key) => (
+        {currentPosts?.map((com) => (
           <div key={com._id}>
             <Link to={`/detail/${com._id}`}>
               <div class="p-6 h-[300px] bg-white text-gray-300 rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">

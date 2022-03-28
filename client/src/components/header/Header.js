@@ -8,7 +8,7 @@ import amb from "../../assets/icons/favicon.png";
 function Nav() {
   const [isOpen, setIsOpen] = useState(false);
   const auth = useSelector((state) => state.auth);
-  const { isLogged, isAdmin, isSeller } = auth;
+  const { isLogged, isAdmin, isEmployer } = auth;
 
   const showModal = () => {
     setIsOpen(!isOpen);
@@ -59,7 +59,7 @@ function Nav() {
               <div className="hidden md:block">
                 <div className="ml-10 flex items-baseline space-x-4">
                   <div className="flex  justify-between gap-8">
-                    {isLogged && isSeller && sellerRouter()}
+                    {isLogged && isEmployer && sellerRouter()}
                   </div>
                   <div className="flex gap-8 ">{isAdmin && adminRouter()}</div>
                   <div>
@@ -137,7 +137,7 @@ function Nav() {
             >
               <div ref={ref} className="pt-4 pb-4 space-y-1 p-8">
                 <div className="flex flex-col gap-4">
-                  {isLogged && isSeller && sellerRouter()}
+                  {isLogged && isEmployer && sellerRouter()}
                 </div>
                 <div>
                   {!isLogged ? (

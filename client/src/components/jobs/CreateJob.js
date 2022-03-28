@@ -11,7 +11,7 @@ import { InputTextarea } from "primereact/inputtextarea";
 function CreateProduct() {
   const auth = useSelector((state) => state.auth);
   const itemDetail = useSelector((state) => state.products.itemDetail);
-  const { isAdmin, user, isSeller } = auth;
+  const { isAdmin, user, isEmployer } = auth;
   const initialState = {
     job_id: "",
     employer_id: user._id,
@@ -46,7 +46,7 @@ function CreateProduct() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      if (!isAdmin && !isSeller) return alert("Yetkiniz yok");
+      if (!isAdmin && !isEmployer) return alert("Yetkiniz yok");
 
       if (onEdit) {
         await axios.put(
