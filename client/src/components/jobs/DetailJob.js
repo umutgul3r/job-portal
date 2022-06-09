@@ -1,13 +1,14 @@
 import React, { useEffect, useRef } from "react";
-import { useParams, useNavigate } from "react-router-dom";
-import axios from "axios";
-import { useSelector, useDispatch } from "react-redux";
-import { productDetailFetch } from "../../redux/reducers/productSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate, useParams } from "react-router-dom";
+
 import { Button } from "primereact/button";
 import { Toast } from "primereact/toast";
+import axios from "axios";
 import moment from "moment";
+import { productDetailFetch } from "../../redux/reducers/productSlice";
 
-function DetailProduct() {
+function DetailJob() {
   const itemDetail = useSelector((state) => state.products.itemDetail);
   const token = useSelector((state) => state.getToken.token);
   const auth = useSelector((state) => state.auth);
@@ -84,7 +85,10 @@ function DetailProduct() {
           {isEmployee && (
             <div className="">
               {!isApply && !isAccept && (
-                <Button className="w-[100px]" onClick={() => handleSubmit()}>
+                <Button
+                  className="w-[100px]"
+                  onClick={() => handleSubmit()}
+                >
                   Başvur
                 </Button>
               )}
@@ -96,10 +100,13 @@ function DetailProduct() {
           <h5 className="text-center mb-10 uppercase">
             İlgini Çekebilecek Benzer İşler
           </h5>
-          <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-4">
+          <div className="grid  lg:grid-cols-3 md:grid-cols-2 gap-4">
             {similarJobsSlice?.map((item) => (
-              <div className="flex flex-col p-8 text-[20px] h-[200px] bg-white text-gray-300 rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
-                <h2 className="font-bold">{item?.title}</h2>
+              <div
+                key={item._id}
+                className="flex flex-col p-8 text-[20px] h-[200px] bg-white text-gray-300 rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700"
+              >
+                <h2 className="mb-4 font-bold">{item?.title}</h2>
                 <p className="elisp w-[140px]">{item?.description}</p>
                 <div className="font-bold">İşveren: {item?.employerName}</div>
                 <p>{item?.salary}</p>
@@ -112,4 +119,4 @@ function DetailProduct() {
   );
 }
 
-export default DetailProduct;
+export default DetailJob;

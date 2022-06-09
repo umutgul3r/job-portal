@@ -1,12 +1,13 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
+import { Button } from "primereact/button";
+import { InputText } from "primereact/inputtext";
+import { InputTextarea } from "primereact/inputtextarea";
+import axios from "axios";
 import { jobsFetch } from "../../redux/reducers/productSlice";
 import { productDetailFetch } from "../../redux/reducers/productSlice";
-import { InputText } from "primereact/inputtext";
-import { Button } from "primereact/button";
-import { InputTextarea } from "primereact/inputtextarea";
+import { toast } from "react-toastify";
 
 function CreateProduct() {
   const auth = useSelector((state) => state.auth);
@@ -30,6 +31,18 @@ function CreateProduct() {
   const params = useParams();
 
   const [onEdit, setOnEdit] = useState(false);
+
+  const onUpdateMessage = (message) => {
+    toast.success(message, {
+      position: "top-center",
+      autoClose: 500,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  };
 
   useEffect(() => {
     if (params.id) {
@@ -56,6 +69,7 @@ function CreateProduct() {
             headers: { Authorization: token },
           }
         );
+        onUpdateMessage("İlan Başarı İle Güncellendi");
       } else {
         await axios.post(
           "/api/create-jobs",
@@ -64,6 +78,7 @@ function CreateProduct() {
             headers: { Authorization: token },
           }
         );
+        onUpdateMessage("İlan Başarı İle Oluşturuldu");
       }
       navigate("/");
     } catch (err) {

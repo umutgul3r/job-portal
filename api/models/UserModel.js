@@ -24,12 +24,11 @@ const userSchema = new mongoose.Schema(
     },
     profile: {
       type: String,
-      default: "",
+      default:
+        "https://res.cloudinary.com/umut44/image/upload/v1648190303/profile/blank-profile-picture-973460_1280_o0tnkh.webp",
     },
     cv: {
       type: String,
-      default:
-        "https://res.cloudinary.com/umut44/image/upload/v1648190303/profile/blank-profile-picture-973460_1280_o0tnkh.webp",
     },
     applicationStatus: Array,
   },
@@ -38,7 +37,7 @@ const userSchema = new mongoose.Schema(
   }
 );
 
-userSchema.post("save", function (object) {
+userSchema.post("save", function (object, next) {
   console.log("Kayıt Edildi", object);
   logger.log({ level: "info", message: object });
   next();

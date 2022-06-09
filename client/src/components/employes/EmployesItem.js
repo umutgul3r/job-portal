@@ -9,7 +9,10 @@ function EmployesItem({ product }) {
         <div className="mb-8 h-8 uppercase">{product.title}</div>
         <div className="w-full">İşe Kabul Edilenler</div>
         {accept?.map((accept) => (
-          <div className="overflow-y-auto h-44" key={accept._id}>
+          <div
+            className="overflow-y-auto h-44"
+            key={accept._id}
+          >
             <div className="mt-2">{accept.postUser}</div>
           </div>
         ))}

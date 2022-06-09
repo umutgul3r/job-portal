@@ -23,9 +23,19 @@ function Pages() {
 
   return (
     <Routes>
-      <Route path="/" exact element={<Jobs />} />
-      <Route path="/detail/:id" element={<DetailJob />} />
-      <Route path="/profile" element={isLogged ? <Profile /> : <NotFound />} />
+      <Route
+        path="/"
+        exact
+        element={<Jobs />}
+      />
+      <Route
+        path="/detail/:id"
+        element={<DetailJob />}
+      />
+      <Route
+        path="/profile"
+        element={<Profile />}
+      />
       <Route
         path="/login"
         exact
@@ -86,7 +96,11 @@ function Pages() {
         element={isEmployer ? <Employes /> : <NotFound />}
         exact
       />
-      <Route path="*" exact element={<NotFound />} />
+      <Route
+        path="*"
+        exact
+        element={<NotFound />}
+      />
     </Routes>
   );
 }

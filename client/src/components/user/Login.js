@@ -1,18 +1,20 @@
-import React from "react";
-import { useState } from "react";
-import { Link } from "react-router-dom";
-import axios from "axios";
-import { showErrMsg, showSuccessMsg } from "../utils/Notification";
-import { useDispatch } from "react-redux";
-import { login } from "../../redux/reducers/authSlice";
-import { useNavigate } from "react-router-dom";
-import { GoogleLogin } from "react-google-login";
-import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { InputText } from "primereact/inputtext";
+
+import { showErrMsg, showSuccessMsg } from "../utils/Notification";
+
 import { Button } from "primereact/button";
 import { Checkbox } from "primereact/checkbox";
+import { GoogleLogin } from "react-google-login";
+import { InputText } from "primereact/inputtext";
 import JobImg from "../../assets/job.jpg";
+import { Link } from "react-router-dom";
+import React from "react";
+import axios from "axios";
+import { login } from "../../redux/reducers/authSlice";
+import { toast } from "react-toastify";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 const initialState = {
   email: " ",
@@ -64,6 +66,7 @@ export default function Login() {
 
   const responseGoogle = async (response) => {
     try {
+      console.log("çalıştı");
       const res = await axios.post("/user/google_login", {
         tokenId: response.tokenId,
       });
@@ -74,6 +77,7 @@ export default function Login() {
       dispatch(login());
       navigate("/");
     } catch (err) {
+      console.log("hata oluştu");
       err.response.data.msg &&
         setUser({ ...user, err: err.response.data.msg, success: "" });
     }
@@ -82,7 +86,11 @@ export default function Login() {
   return (
     <div className="flex justify-center h-screen mx-1 lg:mx-8 ">
       <div className="w-[50%] h-screen hidden lg:flex">
-        <img src={JobImg} className="w-full h-full " alt="jobImg" />
+        <img
+          src={JobImg}
+          className="w-full h-full "
+          alt="jobImg"
+        />
       </div>
 
       <div className="lg:w-[50%] md:w-full w-full">
@@ -107,7 +115,10 @@ export default function Login() {
               </div>
 
               <div>
-                <label htmlFor="email" className="block  font-medium mb-2">
+                <label
+                  htmlFor="email"
+                  className="block  font-medium mb-2"
+                >
                   Email
                 </label>
                 <InputText

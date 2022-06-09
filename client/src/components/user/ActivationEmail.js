@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
-import axios from "axios";
+import React, { useEffect, useState } from "react";
 import { showErrMsg, showSuccessMsg } from "../utils/Notification";
+
+import axios from "axios";
+import { useParams } from "react-router-dom";
 
 export default function ActivationEmail() {
   const { activation_token } = useParams();
@@ -25,7 +26,7 @@ export default function ActivationEmail() {
   }, [activation_token]);
 
   return (
-    <div className="activeWrapper">
+    <div className="mb-2 bg-green-600 sm:w-1/2 p-4 text-center text-white uppercase mx-auto">
       {err && showErrMsg(err)}
       {success && showSuccessMsg(success)}
     </div>

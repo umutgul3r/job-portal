@@ -1,13 +1,15 @@
-import React, { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import "react-toastify/dist/ReactToastify.css";
+
+import React, { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+
+import { Button } from "primereact/button";
+import { InputText } from "primereact/inputtext";
 import axios from "axios";
+import change from "../../assets/icons/changes.png";
 import { showErrMsg } from "../utils/Notification";
 import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import change from "../../assets/icons/changes.png";
-import { InputText } from "primereact/inputtext";
-import { Button } from "primereact/button";
+import { useSelector } from "react-redux";
 
 function EditUser() {
   const { id } = useParams();
@@ -68,7 +70,6 @@ function EditUser() {
 
   const handleCheck = () => {
     setErr("");
-
     setCheckAdmin(!checkAdmin);
   };
 
@@ -106,7 +107,11 @@ function EditUser() {
           />
           <span className="ml-2">Değiştir</span>
         </div>
-        <Button label="Kaydet" className="w-full mt-4" onClick={handleUpdate} />
+        <Button
+          label="Kaydet"
+          className="w-full mt-4"
+          onClick={handleUpdate}
+        />
         {err && showErrMsg(err)}
       </div>
     </div>

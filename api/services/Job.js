@@ -2,7 +2,7 @@ const Jobs = require("../models/JobModel");
 
 const getFilteredJobs = (where, sort, category) => {
   return Jobs.find({
-    $and: [{ category: {$regex : category} }, { title: { $regex: where } }],
+    $and: [{ category: { $regex: category } }, { title: { $regex: where } }],
   }).sort(sort);
 };
 

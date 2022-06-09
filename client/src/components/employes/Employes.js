@@ -1,8 +1,9 @@
 import React, { useEffect } from "react";
-import Filters from "../search/Search";
-import { useSelector, useDispatch } from "react-redux";
-import { jobsFetch } from "../../redux/reducers/productSlice";
+import { useDispatch, useSelector } from "react-redux";
+
 import EmployesItem from "./EmployesItem";
+import Filters from "../search/Search";
+import { jobsFetch } from "../../redux/reducers/productSlice";
 
 function Employes() {
   const auth = useSelector((state) => state.auth);
@@ -22,9 +23,13 @@ function Employes() {
   return (
     <>
       <Filters />
-      <div className="grid lg:grid-cols-5 md:grid-cols-4 sm:grid-cols-2">
+      <div className="grid lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-2">
         {employes.map((com) => (
-          <EmployesItem key={com._id} product={com} isAdmin={isAdmin} />
+          <EmployesItem
+            key={com._id}
+            product={com}
+            isAdmin={isAdmin}
+          />
         ))}
       </div>
     </>

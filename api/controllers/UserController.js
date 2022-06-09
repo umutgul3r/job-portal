@@ -78,16 +78,22 @@ const activateEmail = async (req, res) => {
     console.log("girdi");
     const { name, email, password } = user;
     const check = await Users.findOne({ email });
-    if (check) return res.status(400).json({ msg: "Bu Email Zaten Alınmış" });
-    const newUser = new Users({
-      name,
-      email,
-      password,
-    });
-    console.log("save çalıştı");
-    await newUser.save();
-    console.log("sonrası çalıstı");
-    res.json({ msg: "Hesap Aktifleştirildi" });
+    if (check) {
+      return res.status(400).json({ msg: "Bu Hesap Zaten Aktif" });
+    } else {
+      const newUser = new Users({
+        name,
+        email,
+        password,
+      });
+      console.log("save çalıştı");
+      await newUser.save((err, userDoc) => {
+        if (err) return res.status(400).send(err);
+        console.log("saved item");
+      });
+      console.log("after save");
+      res.json({ msg: "Hesap Aktifleştirildi" });
+    }
   } catch (err) {
     return res.status(500).json({ msg: err.message });
   }
@@ -225,7 +231,7 @@ const googleLogin = async (req, res) => {
         name,
         email,
         password: passwordHash,
-        avatar: picture,
+        profile: picture,
       });
 
       await newUser.save();

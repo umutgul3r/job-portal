@@ -1,9 +1,10 @@
-import React, { useState } from "react";
-import { Transition } from "@headlessui/react";
 import { Link, NavLink } from "react-router-dom";
-import { useSelector } from "react-redux";
-import axios from "axios";
+import React, { useState } from "react";
+
+import { Transition } from "@headlessui/react";
 import amb from "../../assets/icons/favicon.png";
+import axios from "axios";
+import { useSelector } from "react-redux";
 
 function Nav() {
   const [isOpen, setIsOpen] = useState(false);
@@ -52,8 +53,15 @@ function Nav() {
         <div className=" mx-1 px-4">
           <div className="flex items-center h-16">
             <div className="flex w-full items-center justify-between">
-              <Link to="/" className="flex items-center gap-2">
-                <img className="h-8 w-8" src={amb} alt="Workflow" />
+              <Link
+                to="/"
+                className="flex items-center gap-2"
+              >
+                <img
+                  className="h-8 w-8"
+                  src={amb}
+                  alt="Workflow"
+                />
                 <span className="text-black">44 Job Find</span>
               </Link>
               <div className="hidden md:block">
@@ -70,7 +78,11 @@ function Nav() {
                         <Link to="/profile">
                           <i className="pi pi-user text-blue-500"></i> Profil
                         </Link>
-                        <Link className="ml-4" onClick={logoutUser} to="/">
+                        <Link
+                          className="ml-4"
+                          onClick={logoutUser}
+                          to="/"
+                        >
                           <i className="pi pi-sign-out text-blue-500"></i> Çıkış
                           Yap
                         </Link>
@@ -128,14 +140,21 @@ function Nav() {
           </div>
         </div>
 
-        <Transition onFocus={showModal} onBlur={showModal} show={isOpen}>
+        <Transition
+          onFocus={showModal}
+          onBlur={showModal}
+          show={isOpen}
+        >
           {() => (
             <div
               onClick={showModal}
               className="md:hidden absolute bg-white shadow border border-black rounded-md sm:w-2/5 w-[70%] right-3 top-[56px] z-50"
               id="mobile-menu"
             >
-              <div ref={ref} className="pt-4 pb-4 space-y-1 p-8">
+              <div
+                ref={ref}
+                className="pt-4 pb-4 space-y-1 p-8"
+              >
                 <div className="flex flex-col gap-4">
                   {isLogged && isEmployer && sellerRouter()}
                 </div>
@@ -147,7 +166,10 @@ function Nav() {
                       <Link to="/profile">
                         <i className="pi pi-user text-blue-500"></i> Profil
                       </Link>
-                      <Link onClick={logoutUser} to="/">
+                      <Link
+                        onClick={logoutUser}
+                        to="/"
+                      >
                         <i className="pi pi-sign-out text-blue-500"></i> Çıkış
                         Yap
                       </Link>

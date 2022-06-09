@@ -1,13 +1,11 @@
 import React, { useEffect, useRef, useState } from "react";
+
+import { Button } from "primereact/button";
+import Chat from "../../assets/icons/help.png";
 import socketIOClient from "socket.io-client";
 import { useSelector } from "react-redux";
-import Chat from "../../assets/icons/help.png";
-import { Button } from "primereact/button";
 
-const ENDPOINT =
-  window.location.host.indexOf("localhost") >= 0
-    ? "http://127.0.0.1:5000"
-    : window.location.host;
+const ENDPOINT = window.location.host.indexOf("localhost") >= 0 ? "http://127.0.0.1:5000" : window.location.host;
 
 export default function ChatBox() {
   const auth = useSelector((state) => state.auth);
@@ -16,9 +14,7 @@ export default function ChatBox() {
   const uiMessagesRef = useRef(null);
   const [isOpen, setIsOpen] = useState(false);
   const [messageBody, setMessageBody] = useState("");
-  const [messages, setMessages] = useState([
-    { name: "Destek", body: "Merhaba Lütfen Sorununuzu Belirtiniz" },
-  ]);
+  const [messages, setMessages] = useState([{ name: "Destek", body: "Merhaba Lütfen Sorununuzu Belirtiniz" }]);
 
   useEffect(() => {
     if (uiMessagesRef.current) {
@@ -67,8 +63,16 @@ export default function ChatBox() {
   return (
     <div className="text-black bg-blue-300 rounded-2xl fixed right-4 bottom-3 z-20 max-w-[350px]">
       {!isOpen ? (
-        <button type="button" className="bg-white" onClick={supportHandler}>
-          <img className="h-16 w-16" src={Chat} alt="" />
+        <button
+          type="button"
+          className="bg-white"
+          onClick={supportHandler}
+        >
+          <img
+            className="h-16 w-16"
+            src={Chat}
+            alt=""
+          />
         </button>
       ) : (
         <div>
@@ -85,7 +89,10 @@ export default function ChatBox() {
             ref={uiMessagesRef}
           >
             {messages.map((msg, index) => (
-              <li className="mb-4" key={index}>
+              <li
+                className="mb-4"
+                key={index}
+              >
                 <strong>{`${msg.name}: `}</strong> {msg.body}
               </li>
             ))}

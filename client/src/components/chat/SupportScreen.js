@@ -1,8 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
+
+import { Button } from "primereact/button";
+import MessageBox from "./MessageBox";
 import socketIOClient from "socket.io-client";
 import { useSelector } from "react-redux";
-import MessageBox from "./MessageBox";
-import { Button } from "primereact/button";
 
 let allUsers = [];
 let allMessages = [];
@@ -153,7 +154,10 @@ export default function SupportScreen() {
             <div>
               <strong>{selectedUser.name} e Yardım et </strong>
             </div>
-            <ul ref={uiMessagesRef} className="overflow-auto h-[220px]">
+            <ul
+              ref={uiMessagesRef}
+              className="overflow-auto h-[220px]"
+            >
               {messages.length === 0 && <li>Mesaj Bulunamadı</li>}
               {messages.map((msg, index) => (
                 <li key={index}>

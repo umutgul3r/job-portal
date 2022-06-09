@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import Filters from "../search/Search";
 import { useSelector, useDispatch } from "react-redux";
 import { jobsFetch, deleteProducts } from "../../redux/reducers/productSlice";
-import { Card } from "primereact/card";
+import { toast } from "react-toastify";
 import { Button } from "primereact/button";
 import { useNavigate } from "react-router-dom";
 import { ProgressSpinner } from "primereact/progressspinner";
@@ -19,6 +19,25 @@ function MyProducts() {
     dispatch(jobsFetch(""));
   }, [dispatch]);
 
+  const deleteProduct = (id, token) => {
+    dispatch(deleteProducts([id, token]));
+    dispatch(jobsFetch(""));
+    window.location.reload();
+    onDeleteMessage();
+  };
+
+  const onDeleteMessage = () => {
+    toast.success("İlan Başarı İle Silindi", {
+      position: "top-center",
+      autoClose: 500,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  };
+
   const handleUpdate = (id) => {
     navigate(`/edit-job/${id}`);
   };
@@ -33,7 +52,10 @@ function MyProducts() {
       <Filters />
       <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 px-10 mt-12">
         {findMyJobs?.map((com, key) => (
-          <div className="h-[300px]" key={com._id}>
+          <div
+            className="h-[300px]"
+            key={com._id}
+          >
             <div class="p-6 h-[250px] bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
               <div className="myJobsDiv">
                 <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
@@ -46,7 +68,7 @@ function MyProducts() {
               <div className="flex gap-4">
                 <Button
                   className="myJobsButton w-full bg-red-400"
-                  onClick={() => dispatch(deleteProducts([com._id, token]))}
+                  onClick={() => deleteProduct(com._id, token)}
                   icon="pi pi-times"
                 />
                 <Button

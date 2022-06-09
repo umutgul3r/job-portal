@@ -78,7 +78,7 @@ export default function Register() {
   return (
     <>
       <div className="flex flex-col h-screen mt-12">
-        <div className="w-1/2 mb-4">
+        <div className=" mb-4 bg-green-600 mx-auto sm:w-1/4 w-4/5 p-4 text-center text-white uppercase">
           {err && showErrMsg(err)}
           {success && showSuccessMsg(success)}
         </div>

@@ -56,8 +56,10 @@ function ResetPassword() {
       <h2>ŞİFRENİ SIFIRLA</h2>
 
       <div className="flex flex-col w-full sm:w-1/2 gap-4">
-        {err && showErrMsg(err)}
-        {success && showSuccessMsg(success)}
+        <div className="mb-2 bg-green-600 p-4 text-center text-white uppercase">
+          {err && showErrMsg(err)}
+          {success && showSuccessMsg(success)}
+        </div>
 
         <label htmlFor="password">Şifre</label>
         <InputText

@@ -81,20 +81,32 @@ export default function Applications() {
       <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400 mt-10">
         <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
           <tr>
-            <th scope="col" className="px-6 py-3">
+            <th
+              scope="col"
+              className="px-6 py-3"
+            >
               İsim
             </th>
-            <th scope="col" className="px-6 py-3">
+            <th
+              scope="col"
+              className="px-6 py-3"
+            >
               Cv
             </th>
-            <th scope="col" className="px-6 py-3">
+            <th
+              scope="col"
+              className="px-6 py-3"
+            >
               İşlemler
             </th>
           </tr>
         </thead>
         <tbody>
           {application?.map((item) => (
-            <tr key={item.id} className="bg-white dark:bg-gray-800">
+            <tr
+              key={item.id}
+              className="bg-white dark:bg-gray-800"
+            >
               <th
                 scope="row"
                 className="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap uppercase"

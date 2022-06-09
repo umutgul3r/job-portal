@@ -1,17 +1,19 @@
-import React, { useEffect } from "react";
-import { BrowserRouter as Router } from "react-router-dom";
-import Header from "./components/header/Header";
-import Pages from "./components/Pages";
-import axios from "axios";
-import { getToken } from "./redux/reducers/tokenReducer";
-import { ToastContainer } from "react-toastify";
-import { fetchUser, getUserAuth, login } from "./redux/reducers/authSlice";
-import { jobsFetch } from "./redux/reducers/productSlice";
-import { useSelector, useDispatch } from "react-redux";
-import ChatBox from "./components/chat/ChatBox";
 import "primereact/resources/themes/saga-blue/theme.css";
 import "primereact/resources/primereact.min.css";
 import "primeicons/primeicons.css";
+
+import React, { useEffect } from "react";
+import { fetchUser, getUserAuth, login } from "./redux/reducers/authSlice";
+import { useDispatch, useSelector } from "react-redux";
+
+import ChatBox from "./components/chat/ChatBox";
+import Header from "./components/header/Header";
+import Pages from "./components/Pages";
+import { BrowserRouter as Router } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import axios from "axios";
+import { getToken } from "./redux/reducers/tokenReducer";
+import { jobsFetch } from "./redux/reducers/productSlice";
 
 function App() {
   const auth = useSelector((state) => state.auth);
