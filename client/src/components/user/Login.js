@@ -177,7 +177,7 @@ export default function Login() {
                   className="w-full bg-blue-400"
                   type="submit"
                 />
-                <div className="social">
+                <div className="social text-center text-red-600">
                   <GoogleLogin
                     className="w-full mt-3 text-center"
                     clientId="431083699368-bba3lva5o2dl6mf4aikuk778lrk9h8fj.apps.googleusercontent.com"

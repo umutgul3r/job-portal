@@ -66,7 +66,10 @@ export default function Register() {
     <React.Fragment>
       <Divider />
       <p className="mt-2">Suggestions</p>
-      <ul className="pl-2 ml-2 mt-0" style={{ lineHeight: "1.5" }}>
+      <ul
+        className="pl-2 ml-2 mt-0"
+        style={{ lineHeight: "1.5" }}
+      >
         <li>At least one lowercase</li>
         <li>At least one uppercase</li>
         <li>At least one numeric</li>
@@ -78,7 +81,7 @@ export default function Register() {
   return (
     <>
       <div className="flex flex-col h-screen mt-12">
-        <div className=" mb-4 bg-green-600 mx-auto sm:w-1/4 w-4/5 p-4 text-center text-white uppercase">
+        <div className=" mb-4 bg-green-400 mx-auto sm:w-1/4 w-4/5 p-4 text-center text-white uppercase">
           {err && showErrMsg(err)}
           {success && showSuccessMsg(success)}
         </div>

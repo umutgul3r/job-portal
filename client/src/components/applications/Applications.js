@@ -11,10 +11,7 @@ import {
 
 export default function Applications() {
   const itemDetail = useSelector((state) => state.products.itemDetail);
-  const auth = useSelector((state) => state.auth);
   const application = itemDetail.applications;
-
-  const { user } = auth;
 
   const navigate = useNavigate();
   const params = useParams();
@@ -124,7 +121,7 @@ export default function Applications() {
 
                 <a
                   className="w-8 sm:w-1/4 h-10 p-button text-sm ml-2"
-                  href={user.cv}
+                  href={item.cv}
                 >
                   Cv'yi Görüntüle
                 </a>

@@ -5,7 +5,10 @@ import Chat from "../../assets/icons/help.png";
 import socketIOClient from "socket.io-client";
 import { useSelector } from "react-redux";
 
-const ENDPOINT = window.location.host.indexOf("localhost") >= 0 ? "http://127.0.0.1:5000" : window.location.host;
+const ENDPOINT =
+  window.location.host.indexOf("localhost") >= 0
+    ? "http://127.0.0.1:5000"
+    : window.location.host;
 
 export default function ChatBox() {
   const auth = useSelector((state) => state.auth);
@@ -14,7 +17,9 @@ export default function ChatBox() {
   const uiMessagesRef = useRef(null);
   const [isOpen, setIsOpen] = useState(false);
   const [messageBody, setMessageBody] = useState("");
-  const [messages, setMessages] = useState([{ name: "Destek", body: "Merhaba Lütfen Sorununuzu Belirtiniz" }]);
+  const [messages, setMessages] = useState([
+    { name: "Destek", body: "Merhaba Lütfen Sorununuzu Belirtiniz" },
+  ]);
 
   useEffect(() => {
     if (uiMessagesRef.current) {
@@ -101,7 +106,7 @@ export default function ChatBox() {
             <div className="supportArea">
               <input
                 value={messageBody}
-                className="p-1 w-3/5 m-4 rounded-sm border-black border-2"
+                className="p-1 pl-2 w-3/5 m-4 rounded-xl border-black border-2"
                 onChange={(e) => setMessageBody(e.target.value)}
                 onKeyUp={submitHandler}
                 type="text"

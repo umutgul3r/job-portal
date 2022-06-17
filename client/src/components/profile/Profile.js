@@ -214,7 +214,7 @@ export default function Profile() {
         {success && showSuccessMsg(success)}
         {loading && (
           <ProgressSpinner
-            className="absolute left-[50%] top-[50%]"
+            className="absolute left-[50%] top-[50%] z-20"
             style={{ width: "100px", height: "100px" }}
             strokeWidth="8"
             animationDuration=".5s"

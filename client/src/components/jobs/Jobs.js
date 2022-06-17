@@ -39,7 +39,7 @@ function Products() {
           >
             <div className="p-6 h-[300px] bg-white text-gray-300 rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
               <div className="myJobsDiv">
-                <h5 className="elisp mb-2 text-2xl font-bold tracking-tight  dark:text-white">
+                <h5 className="elisp capitalize mb-2 text-2xl font-bold tracking-tight  dark:text-white">
                   {com.title}
                 </h5>
               </div>
