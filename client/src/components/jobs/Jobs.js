@@ -47,7 +47,7 @@ function Products() {
               <div className="jobDiv mt-1 elisp">
                 Açıklama:{com.description}
               </div>
-              <div className="jobDiv">{com.category}</div>
+              <div className="jobDiv capitalize">{com.category}</div>
 
               <div>Maaş:{com.salary}</div>
               <div className="jobDiv mt-1">

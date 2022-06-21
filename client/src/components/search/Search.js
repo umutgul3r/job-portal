@@ -24,9 +24,9 @@ function Filters() {
     { name: "Muhasebe", code: "muhasebe" },
     { name: "Vasıfsız", code: "vasıfsız" },
     { name: "Doktor", code: "doktor" },
-    { name: "Hemşire", code: "hemşire" },
-    { name: "Mühendis", code: "Mühendis" },
-    { name: "Boyacı", code: "Boyacı" },
+    { name: "Hemşire", code: "hemsire" },
+    { name: "Mühendis", code: "muhendis" },
+    { name: "Boyacı", code: "boyaci" },
   ];
 
   return (

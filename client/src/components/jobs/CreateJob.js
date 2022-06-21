@@ -12,6 +12,7 @@ import { toast } from "react-toastify";
 function CreateProduct() {
   const auth = useSelector((state) => state.auth);
   const itemDetail = useSelector((state) => state.products.itemDetail);
+  console.log(itemDetail);
   const { isAdmin, user, isEmployer } = auth;
   const initialState = {
     job_id: "",
@@ -19,7 +20,7 @@ function CreateProduct() {
     employerName: user.name,
     title: "",
     description: "",
-    category: "yazılım",
+    category: "",
     maxApplicants: 10,
     skillsets: ["c#", "java"],
     salary: 5000,
@@ -150,6 +151,27 @@ function CreateProduct() {
             rows="5"
             onChange={handleChangeInput}
           />
+        </div>
+        <div className="mb-2 mt-2">
+          <label
+            className="mr-4"
+            htmlFor="description"
+          >
+            Kategori
+          </label>
+          <select
+            name="category"
+            defaultValue={itemDetail.category}
+            onChange={handleChangeInput}
+          >
+            <option value="yazılım">Yazılım</option>
+            <option value="genel">Genel</option>
+            <option value="doktor">Doktor</option>
+            <option value="hemsire">Hemsire</option>
+            <option value="muhasebeci">Muhasebeci</option>
+            <option value="boyaci">Boyacı</option>
+            <option value="muhendis">Mühendis</option>
+          </select>
         </div>
 
         <Button
