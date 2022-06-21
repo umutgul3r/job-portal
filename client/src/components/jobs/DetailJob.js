@@ -25,6 +25,7 @@ function DetailJob() {
   const postUser = user.name;
   const post_id = user._id;
   const cv = user.cv;
+  console.log(cv);
   const job_id = itemDetail._id;
   const job_title = itemDetail.title;
   const { items } = useSelector((state) => state.products);

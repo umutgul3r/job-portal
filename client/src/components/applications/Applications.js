@@ -16,6 +16,8 @@ export default function Applications() {
   const navigate = useNavigate();
   const params = useParams();
   const dispatch = useDispatch();
+  const auth = useSelector((state) => state.auth);
+  const { user } = auth;
 
   let job_status = "red";
 

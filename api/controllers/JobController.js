@@ -44,6 +44,7 @@ const applyProductController = async (req, res) => {
   const random = Math.floor(Math.random() * 46884711);
   const id = String(random);
   const jobm = { ...req.body, id };
+  console.log(jobm);
   applyJob(jobm, req.params.id)
     .then((response) => {
       res.status(200).send(response);

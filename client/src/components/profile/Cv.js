@@ -24,7 +24,10 @@ export default function Cv({ changeCv }) {
   return (
     <div>
       <div className="relative overflow-hidden inline-block cursor-pointer ml-12 mt-12">
-        <Button className="cursor-pointer w-28" label="Dosya Seç">
+        <Button
+          className="cursor-pointer w-28"
+          label="Dosya Seç"
+        >
           <i className="upload pi pi-upload"></i>
         </Button>
         <input
