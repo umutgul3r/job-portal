@@ -67,7 +67,7 @@ export default function Applications() {
 
     deleteCommentWithout(id);
     statusPost(job_status, job_title, post_id);
-    navigate("/employes");
+    navigate("/");
   };
 
   useEffect(() => {

@@ -16,6 +16,7 @@ import Support from "./chat/SupportScreen";
 import MyJobs from "./jobs/MyJobs";
 import Applications from "./applications/Applications";
 import Employes from "./employes/Employes";
+import Loading from "./utils/Loading";
 
 function Pages() {
   const auth = useSelector((state) => state.auth);
@@ -59,27 +60,27 @@ function Pages() {
       <Route
         path="/support"
         exact
-        element={isAdmin ? <Support /> : <NotFound />}
+        element={isAdmin ? <Support /> : <Loading />}
       />
       <Route
         path="/my-jobs"
         exact
-        element={isEmployer ? <MyJobs /> : <NotFound />}
+        element={isEmployer ? <MyJobs /> : <Loading />}
       />
       <Route
         path="/applications/:id"
         exact
-        element={isEmployer ? <Applications /> : <NotFound />}
+        element={isEmployer ? <Applications /> : <Loading />}
       />
       <Route
         path="/create-job"
         exact
-        element={isAdmin || isEmployer ? <CreateJob /> : <NotFound />}
+        element={isAdmin || isEmployer ? <CreateJob /> : <Loading />}
       />
       <Route
         path="/edit-job/:id"
         exact
-        element={isAdmin || isEmployer ? <CreateJob /> : <NotFound />}
+        element={isAdmin || isEmployer ? <CreateJob /> : <Loading />}
       />
       <Route
         path="/user/activate/:activation_token"
@@ -88,12 +89,12 @@ function Pages() {
       />
       <Route
         path="/edit_user/:id"
-        element={isAdmin ? <EditUser /> : <NotFound />}
+        element={isAdmin ? <EditUser /> : <Loading />}
         exact
       />
       <Route
         path="/employes"
-        element={isEmployer ? <Employes /> : <NotFound />}
+        element={isEmployer ? <Employes /> : <Loading />}
         exact
       />
       <Route
