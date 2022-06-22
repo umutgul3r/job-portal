@@ -10,26 +10,44 @@ const Users = ({ handleDelete }) => {
       <table className="w-[92%] lg:w-[80%]  text-sm text-left text-gray-500 m-10 dark:text-gray-400 mt-16">
         <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
           <tr>
-            <th scope="col" className="px-6 py-3">
+            <th
+              scope="col"
+              className="px-6 py-3"
+            >
               İsim
             </th>
-            <th scope="col" className="px-6 py-3">
+            <th
+              scope="col"
+              className="px-6 py-3"
+            >
               Posta
             </th>
-            <th scope="col" className="px-6 py-3">
+            <th
+              scope="col"
+              className="px-6 py-3"
+            >
               Admin
             </th>
-            <th scope="col" className="px-6 py-3">
-              Satıcı
+            <th
+              scope="col"
+              className="px-6 py-3"
+            >
+              İşveren
             </th>
-            <th scope="col" className="px-6 py-3">
+            <th
+              scope="col"
+              className="px-6 py-3"
+            >
               İşlem
             </th>
           </tr>
         </thead>
         <tbody>
           {users?.map((item) => (
-            <tr key={item.id} className="bg-white dark:bg-gray-800">
+            <tr
+              key={item.id}
+              className="bg-white dark:bg-gray-800"
+            >
               <th
                 scope="row"
                 className="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap uppercase"
@@ -55,7 +73,10 @@ const Users = ({ handleDelete }) => {
                 <Link to={`/edit_user/${item._id}`}>
                   <i class="pi pi-user-edit"> Düzenle</i>
                 </Link>
-                <i onClick={() => handleDelete(item._id)} class="pi pi-trash">
+                <i
+                  onClick={() => handleDelete(item._id)}
+                  class="pi pi-trash"
+                >
                   {" "}
                   Sil
                 </i>

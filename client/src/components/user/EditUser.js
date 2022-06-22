@@ -98,7 +98,7 @@ function EditUser() {
           />
         </div>
         <div>
-          <p>{editUser.role === 2 ? "Rol : Satıcı" : "Rol : Müşteri"}</p>
+          <p>{editUser.role === 2 ? "Rol : İşveren" : "Rol : Müşteri"}</p>
           <img
             className="h-10 w-10 cursor-pointer relative"
             onClick={handleCheck}

@@ -40,7 +40,7 @@ const sendEmail = (to, url, text) => {
     to: to,
     subject: "Umut Güler",
     html: ` <div style="max-width: 700px; margin:auto; border: 10px solid #ddd; padding: 50px 20px; font-size: 110%;">
-            <h2 style="color: teal;">44 Store'a Hoşgeldiniz</h2>
+            <h2 style="color: teal;">44 Job'a Hoşgeldiniz</h2>
             <p>Butona Tıklayarak ${text}</p>
             <a href=${url} style="background: crimson; text-decoration: none; color: white; padding: 10px 20px; margin: 10px 0; display: inline-block;">Devam Et</a>
             <div>${url}</div></div>`,
