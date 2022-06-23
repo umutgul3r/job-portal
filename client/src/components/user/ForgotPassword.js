@@ -18,7 +18,7 @@ function ForgotPassword() {
   const handleChangeInput = (e) => {
     const { name, value } = e.target;
     setData({ ...data, [name]: value, err: "", success: "" });
-  }
+  };
 
   const forgotPass = async () => {
     if (!isEmail(email)) {
@@ -37,12 +37,21 @@ function ForgotPassword() {
   return (
     <div className="flex flex-col align-center mt-8">
       <div className="mt-8 flex items-center flex-col m-4">
-        <div className="mb-2 bg-green-600 sm:w-1/2 p-4 text-center text-white uppercase">
+        <div
+          className={
+            err
+              ? "bg-red-400 text-center font-medium text-xl"
+              : "bg-green-500 w-1/2 text-center font-medium text-lg"
+          }
+        >
           {err && showErrMsg(err)}
           {success && showSuccessMsg(success)}
         </div>
 
-        <label className="mt-4 text-xl" htmlFor="email">
+        <label
+          className="mt-4 text-xl"
+          htmlFor="email"
+        >
           E-Posta
         </label>
         <InputText

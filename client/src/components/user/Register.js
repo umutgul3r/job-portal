@@ -39,7 +39,7 @@ export default function Register() {
       });
 
     if (!isEmail(email))
-      return setUser({ ...user, err: "Invalid emails.", success: "" });
+      return setUser({ ...user, err: "Geçersiz e-posta", success: "" });
 
     if (isLenght(password))
       return setUser({ ...user, err: "Şifre En Az 6 Karakter Olmalıdır" });
@@ -81,15 +81,20 @@ export default function Register() {
   return (
     <>
       <div className="flex flex-col h-screen mt-12">
-        <div className=" mb-4 bg-green-400 mx-auto sm:w-1/4 w-4/5 p-4 text-center text-white uppercase">
-          {err && showErrMsg(err)}
-          {success && showSuccessMsg(success)}
-        </div>
-
         <form
           className="h-full flex flex-col items-center"
           onSubmit={handleSubmit}
         >
+          <div
+            className={
+              err
+                ? "bg-red-400 text-center font-medium text-xl"
+                : "bg-green-500 w-1/4 text-center mb-8 font-medium text-lg"
+            }
+          >
+            {err && showErrMsg(err)}
+            {success && showSuccessMsg(success)}
+          </div>
           <div className="div flex flex-col ">
             <label htmlFor="name">Ad-Soyad</label>
             <InputText
